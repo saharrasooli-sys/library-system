@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="text-center mb-5 display-4 fw-bold">
+
+    📚 Book Collection
+
+</h1>
+
+<div class="row" id="books-container"></div>
+
+<script>
+
+async function loadBooks() {
+
+    const response = await fetch('/api/books');
+
+    const books = await response.json();
+
+    const container = document.getElementById(
+        'books-container'
+    );
+
+    container.innerHTML = '';
+
+    books.forEach(book => {
+
+        container.innerHTML += `
+
+        <div class="col-md-4">
+
+            <div class="card shadow-lg mb-5 fade-in">
+
+                <img src="https://cdn-icons-png.flaticon.com/512/2232/2232688.png"
+                     class="card-img-top p-4"
+                     style="height:300px; object-fit:contain;">
+
+                <div class="card-body text-center">
+
+                    <h3 class="fw-bold">
+
+                        ${book.title}
+
+                    </h3>
+
+                    <p class="text-muted fs-5">
+
+                        ✍ ${book.author}
+
+                    </p>
+
+                    <hr>
+
+                    <a href="/book/${book.id}"
+                       class="btn btn-primary btn-lg">
+
+                        📖 Open Book
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+}
+
+loadBooks();
+
+</script>
+
+{% endblock %}
