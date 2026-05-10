@@ -33,7 +33,7 @@ allowing librarians and members to manage books, users, and checkouts.
 
 ### 1. Clone the repository
 ```
-git clone https://github.com/yasamannabizada-lgtm/library-system.git
+git clone https://github.com/saharrasooli-sys/library-system.git
 cd library-system
 ```
 
