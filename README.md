@@ -6,10 +6,10 @@ allowing librarians and members to manage books, users, and checkouts.
 ---
 
 ## 👥 Team Members
-- **Member 1** – Database & Models
-- **Member 2** – Routes & API
-- **Member 3** – Frontend (UI/UX)
-- **Member 4** – Testing, Documentation & DevOps
+- **Member 1 yasaman nabizada – Database & Models
+- **Member 2 helan rahimi – Routes & API
+- **Member 3 husnia qaderi – Frontend (UI/UX)
+- **Member 4 sahar rasooli – Testing, Documentation & DevOps
 
 ---
 
