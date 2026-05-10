@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container fade-in">
+
+    <div class="card shadow-lg p-5 text-center">
+
+        <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
+             width="120"
+             class="mx-auto mb-4">
+
+        <h1>
+            👤 User Profile
+        </h1>
+
+        <hr>
+
+        <h4>
+            Email:
+        </h4>
+<p id="user-email"
+           class="fs-4 text-muted"></p>
+
+        <h4 class="mt-4">
+            Membership Status
+        </h4>
+
+        <span class="badge bg-success p-3 fs-6">
+            Active Member
+        </span>
+
+    </div>
+
+</div>
+
+<script>
+
+const email = localStorage.getItem("userEmail");
+
+if (email) {
+
+    document.getElementById("user-email").innerText = email;
+
+}
+</script>
+
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="mb-4">
+    🔍 Search Books
+</h1>
+
+<div class="card shadow-lg p-4 mb-5">
+
+<form id="search-form">
+
+    <div class="row">
+
+        <div class="col-md-10">
+
+            <input type="text"
+                   id="title"
+                   class="form-control form-control-lg"
+                   placeholder="Search by title">
+
+        </div>
+
+        <div class="col-md-2">
+
+            <button class="btn btn-primary btn-lg w-100">
+
+                Search
+
+            </button>
+
+        </div>
+
+    </div>
+
+</form>
+
+</div>
+
+<div class="row" id="results"></div>
+
+<script>
+
+document.getElementById('search-form')
+.addEventListener('submit', async function(e){
+
+    e.preventDefault();
+
+    const title = document.getElementById('title').value;
+
+    const response = await fetch(
+        `/books/search?title=${title}`
+    );
+
+    const data = await response.json();
+
+    const results = document.getElementById('results');
+
+    results.innerHTML = '';
+
+    data.forEach(book => {
+
+        results.innerHTML += `
+
+        <div class="col-md-4">
+
+            <div class="card shadow-lg mb-4">
+
+                <div class="card-body">
+
+                    <h3>
+
+                        <a href="/book/${book.id}"
+                           style="text-decoration:none;">
+
+                           ${book.title}
+
+                        </a>
+
+                    </h3>
+
+                    <p>${book.author}</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+});
+
+</script>
+
+{% endblock %}

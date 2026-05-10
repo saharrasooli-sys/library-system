@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="mb-4">
+    📜 User Activity History
+</h1>
+
+<div class="card shadow-lg p-4">
+
+    <table class="table table-striped">
+
+        <thead>
+
+            <tr>
+
+                <th>User</th>
+                <th>Activity</th>
+                <th>Date</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="history-table"></tbody>
+
+    </table>
+
+</div>
+
+<script>
+
+const table = document.getElementById('history-table');
+
+const userEmail = localStorage.getItem("userEmail");
+
+if (userEmail) {
+
+    table.innerHTML += `
+
+    <tr>
+
+        <td>${userEmail}</td>
+
+        <td>Logged In</td>
+
+        <td>${new Date().toLocaleString()}</td>
+
+    </tr>
+
+    `;
+
+}
+
+table.innerHTML += `
+
+<tr>
+
+    <td>Ali</td>
+
+    <td>Checked Out Harry Potter</td>
+
+    <td>2026-05-10</td>
+
+</tr>
+
+<tr>
+
+    <td>Sara</td>
+
+    <td>Returned Atomic Habits</td>
+
+    <td>2026-05-09</td>
+
+</tr>
+
+`;
+
+</script>
+
+{% endblock %}
